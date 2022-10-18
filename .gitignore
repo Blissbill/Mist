@@ -1,3 +1,12 @@
+# Folders
+.vs
+bin
+bin-int
+
+# Files
+*.filters
+*.user
+
 # Prerequisites
 *.d
 
