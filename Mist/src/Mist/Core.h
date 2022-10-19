@@ -9,3 +9,5 @@
 #else
 	#error Mist only supports on Windows
 #endif
+
+#define BIT(x) (1 << x)

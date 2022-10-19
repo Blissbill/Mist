@@ -9,6 +9,7 @@ workspace "Mist"
 	}
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
+startproject "Sandbox"
 
 project "Mist"
 	location "Mist"
@@ -26,6 +27,7 @@ project "Mist"
 
 	includedirs 
 	{
+		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include"
 	}
 
