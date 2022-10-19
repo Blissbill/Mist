@@ -1,9 +1,7 @@
 #pragma once
+#include "mtpch.h"
 
 #include "Mist/Core.h"
-
-#include <string>
-#include <functional>
 
 namespace Mist 
 {

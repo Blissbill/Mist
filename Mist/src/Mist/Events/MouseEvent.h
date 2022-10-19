@@ -1,8 +1,7 @@
 #pragma once
+#include "mtpch.h"
 
 #include "Event.h"
-
-#include <sstream>
 
 namespace Mist
 {
@@ -31,8 +30,8 @@ namespace Mist
 	class MIST_API MouseScrolledEvent : public Event
 	{
 	public:
-		MouseMovedEvent(float xOffset, float yOffset)
-			: m_XOffset(x), m_YOffset(y) {}
+		MouseScrolledEvent(float xOffset, float yOffset)
+			: m_XOffset(xOffset), m_YOffset(yOffset) {}
 
 		inline float GetXOffset() const { return m_XOffset; }
 		inline float GetYOffset() const { return m_YOffset; }
@@ -44,7 +43,7 @@ namespace Mist
 			return ss.str();
 		}
 
-		EVENT_CLASS_TYPE(MouseScrolledEvent);
+		EVENT_CLASS_TYPE(MouseScrolled);
 		EVENT_CLASS_CATEGORY(EventCategoryInput | EventCategoryMouse);
 	private:
 		float m_XOffset, m_YOffset;

@@ -19,6 +19,9 @@ project "Mist"
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
 
+	pchheader "mtpch.h"
+	pchsource "Mist/src/mtpch.cpp"
+
 	files
 	{
 		"%{prj.name}/src/**.h",
