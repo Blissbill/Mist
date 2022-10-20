@@ -65,14 +65,17 @@ project "Mist"
 
 	filter "configurations:Debug"
 		defines "MT_DEBUG"
+		buildoptions "/MDd"
 		symbols "On"
 
 	filter "configurations:Release"
-	defines "MT_RELEASE"
+		defines "MT_RELEASE"
+		buildoptions "/MD"
 		optimize "On"
 
 	filter "configurations:Dist"
-	defines "MT_DIST"
+		defines "MT_DIST"
+		buildoptions "/MD"
 		symbols "On"
 
 project "Sandbox"
@@ -112,12 +115,15 @@ project "Sandbox"
 
 	filter "configurations:Debug"
 		defines "MT_DEBUG"
+		buildoptions "/MDd"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "MT_RELEASE"
+		buildoptions "/MD"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "MT_DIST"
+		buildoptions "/MD"
 		symbols "On"
