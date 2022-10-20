@@ -8,7 +8,7 @@ namespace Mist
 	class MIST_API MouseMovedEvent : public Event 
 	{
 	public:
-		MouseMovedEvent(int x, int y)
+		MouseMovedEvent(float x, float y)
 		: m_MouseX(x), m_MouseY(y) {}
 
 		inline float GetX() const { return m_MouseX; }

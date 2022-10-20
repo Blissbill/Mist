@@ -49,6 +49,6 @@ namespace Mist
 			ss << "KeyReleasedEvent::" << m_KeyKode;
 			return ss.str();
 		}
-		EVENT_CLASS_TYPE(Keyreleased);
+		EVENT_CLASS_TYPE(KeyReleased);
 	};
 }

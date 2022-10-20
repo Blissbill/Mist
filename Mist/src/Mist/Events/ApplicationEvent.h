@@ -27,10 +27,10 @@ namespace Mist
 		unsigned int m_Width, m_Height;
 	};
 
-	class MIST_API WindowsCloseEvent : public Event
+	class MIST_API WindowCloseEvent : public Event
 	{
 	public:
-		WindowsCloseEvent() {}
+		WindowCloseEvent() {}
 
 		EVENT_CLASS_TYPE(WindowClose);
 		EVENT_CLASS_CATEGORY(EventCategoryApplication);
