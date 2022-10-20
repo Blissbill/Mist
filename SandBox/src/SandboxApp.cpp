@@ -25,6 +25,8 @@ public:
 	Sandbox()
 	{
 		PushLayer(new ExampleLayer());
+
+		PushOverlay(new Mist::ImGuiLayer());
 	}
 	~Sandbox()
 	{
