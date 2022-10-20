@@ -1,7 +1,6 @@
 #include "mtpch.h"
 #include "Application.h"
 
-
 #include "Log.h"
 
 namespace Mist 

@@ -13,8 +13,10 @@ startproject "Sandbox"
 
 IncludeDir = {}
 IncludeDir["GLFW"] = "Mist/vendor/GLFW/include"
+IncludeDir["Glad"] = "Mist/vendor/Glad/include"
 
 include "Mist/vendor/GLFW"
+include "Mist/vendor/Glad"
 
 project "Mist"
 	location "Mist"
@@ -37,12 +39,14 @@ project "Mist"
 	{
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
-		"%{IncludeDir.GLFW}"
+		"%{IncludeDir.GLFW}",
+		"%{IncludeDir.Glad}"
 	}
 
 	links
 	{
 		"GLFW",
+		"Glad",
 		"opengl32.lib"
 	}
 
@@ -55,7 +59,8 @@ project "Mist"
 		{
 			"MT_PLATFORM_WINDOWS", 
 			"MT_BUILD_DLL",
-			"MT_ENABLE_ASSERTS"
+			"MT_ENABLE_ASSERTS",
+			"GLFW_INCLUDE_NONE"
 		}
 
 		postbuildcommands
