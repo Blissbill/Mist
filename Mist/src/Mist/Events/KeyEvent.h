@@ -51,4 +51,23 @@ namespace Mist
 		}
 		EVENT_CLASS_TYPE(KeyReleased);
 	};
+
+	class MIST_API KeyTypedEvent : public KeyEvent
+	{
+	public:
+		KeyTypedEvent(int keykode)
+			: KeyEvent(keykode) {}
+
+		inline int GetRepeatCount() const { return m_RepeatCount; }
+
+		std::string ToString() const override
+		{
+			std::stringstream ss;
+			ss << "KeyTypedEvent::" << m_KeyKode;
+			return ss.str();
+		}
+		EVENT_CLASS_TYPE(KeyTyped);
+	private:
+		int m_RepeatCount;
+	};
 }
