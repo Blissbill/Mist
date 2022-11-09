@@ -34,7 +34,7 @@ public:
 	}
 };
 
-Mist::Application* Mist:: CreateApplication()
+Mist::Application* Mist::CreateApplication()
 {
 	return new Sandbox();
 }

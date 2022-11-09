@@ -1,5 +1,6 @@
 workspace "Mist"
 	architecture "x64"
+	startproject "Sandbox"
 
 	configurations 
 	{
@@ -9,21 +10,24 @@ workspace "Mist"
 	}
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
-startproject "Sandbox"
+
 
 IncludeDir = {}
 IncludeDir["GLFW"] = "Mist/vendor/GLFW/include"
 IncludeDir["Glad"] = "Mist/vendor/Glad/include"
 IncludeDir["ImGui"] = "Mist/vendor/imgui"
+group "Dependencies"
+	include "Mist/vendor/GLFW"
+	include "Mist/vendor/Glad"
+	include "Mist/vendor/imgui"
 
-include "Mist/vendor/GLFW"
-include "Mist/vendor/Glad"
-include "Mist/vendor/imgui"
+group ""
 
 project "Mist"
 	location "Mist"
 	kind "SharedLib"
 	language "C++"
+	staticruntime "off"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -56,7 +60,6 @@ project "Mist"
 
 	filter "system:windows"
 		cppdialect "C++17"
-		staticruntime "On"
 		systemversion "latest"
 
 		defines
@@ -70,28 +73,29 @@ project "Mist"
 
 		postbuildcommands
 		{
-			("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox")
+			("{COPY} %{cfg.buildtarget.relpath} \"../bin/" .. outputdir .. "/Sandbox/\"")
 		}
 
 	filter "configurations:Debug"
 		defines "MT_DEBUG"
-		buildoptions "/MDd"
+		runtime "Debug"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "MT_RELEASE"
-		buildoptions "/MD"
+		runtime "Release"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "MT_DIST"
-		buildoptions "/MD"
+		runtime "Release"
 		symbols "On"
 
 project "Sandbox"
 	location "Sandbox"
 	kind "ConsoleApp"
 	language "C++"
+	staticruntime "off"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -115,7 +119,6 @@ project "Sandbox"
 
 	filter "system:windows"
 		cppdialect "C++17"
-		staticruntime "On"
 		systemversion "latest"
 
 		defines
@@ -125,15 +128,15 @@ project "Sandbox"
 
 	filter "configurations:Debug"
 		defines "MT_DEBUG"
-		buildoptions "/MDd"
+		runtime "Debug"
 		symbols "On"
 
 	filter "configurations:Release"
 		defines "MT_RELEASE"
-		buildoptions "/MD"
+		runtime "Release"
 		optimize "On"
 
 	filter "configurations:Dist"
 		defines "MT_DIST"
-		buildoptions "/MD"
+		runtime "Release"
 		symbols "On"
