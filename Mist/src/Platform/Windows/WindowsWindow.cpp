@@ -169,5 +169,4 @@ namespace Mist
 	{
 		glfwDestroyWindow(m_Window);
 	}
-
 }
