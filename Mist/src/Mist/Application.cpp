@@ -31,7 +31,7 @@ namespace Mist
 		EventDispatcher dispatcher(e);
 		dispatcher.Dispatch<WindowCloseEvent>(MT_BIND_EVENT_FN(Application::OnWindowClose));
 
-		MT_CORE_TRACE("{0}", e);
+		// MT_CORE_TRACE("{0}", e);
 
 		for (auto it = m_LayerStack.end(); it != m_LayerStack.begin();)
 		{
@@ -63,8 +63,8 @@ namespace Mist
 			for (Layer* layer : m_LayerStack)
 				layer->OnUpdate();
 			
-			auto [x, y] = Input::GetMousePosition();
-			MT_CORE_TRACE("{0}, {1}", x, y);
+			// auto [x, y] = Input::GetMousePosition();
+			// MT_CORE_TRACE("{0}, {1}", x, y);
 
 			m_Window->OnUpdate();
 		}

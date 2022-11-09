@@ -8,13 +8,14 @@ public:
 
 	void OnUpdate() override
 	{
-		// MT_INFO("ExampleLayer::Update");
+		if (Mist::Input::IsKeyPressed(MT_KEY_TAB))
+			MT_INFO("Tab is pressed");
 	}
 
 
 	void OnEvent(Mist::Event& event) override
 	{
-		MT_TRACE("ExampleLayerEvent::{0}", event);
+		//MT_TRACE("ExampleLayerEvent::{0}", event);
 	}
 
 };
