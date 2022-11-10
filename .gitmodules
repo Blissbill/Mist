@@ -7,3 +7,6 @@
 [submodule "Mist/vendor/imgui"]
 	path = Mist/vendor/imgui
 	url = https://github.com/Blissbill/imgui
+[submodule "Mist/vendor/glm"]
+	path = Mist/vendor/glm
+	url = https://github.com/g-truc/glm
